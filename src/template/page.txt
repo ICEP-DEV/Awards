@@ -1,0 +1,27 @@
+import Sidebar from '../components/Sidebar';
+import Loader from '../components/Loader';
+import '../styles/style.css';
+import '../styles/team.css';
+import { useState } from "react";
+
+function Students() {
+
+    const [Loading, setLoading] = useState(false);
+
+    return (
+        <div className="main">
+            {Loading && <Loader />}
+            <div id="main-sidebar">
+                <Sidebar />
+            </div>
+
+            <div id="main-content">
+                <h3 className="main-content-page">Student Infomation</h3>
+
+            </div>
+
+        </div>
+    )
+}
+
+export default Students;

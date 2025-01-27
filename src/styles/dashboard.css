@@ -1,0 +1,99 @@
+.container{
+  margin-top: 20px;
+}
+
+.content{
+  margin-top: 50px;
+}
+
+.category{
+  padding-bottom:20px;
+}
+
+.nominations{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Responsive grid */
+  gap: 20px;  /* Space between the cards */
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+.nominie{
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden; /* Ensures images don't overflow their containers */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  height: 40vh; 
+  position: relative;
+  /*
+  margin: 10px;
+  text-align: center;
+  background-color: rgba(241, 240, 239, 0.644);
+  width: 20%;
+  height: 20%;
+  border-radius: 10px;*/
+}
+
+.nominie:hover{transform: scale(1.05)}
+
+.nominie-name{
+  text-align: center;
+}
+
+.nominie-image{
+  width: 100%;
+  height: 35vh;  /* Fixed height for all images */
+
+  /*
+  width: 100%;
+  height: 100%;*/
+}
+
+.vote-btn{
+  width: 100%;
+}
+
+.vote-btn:active {
+  transform: scale(0.98); 
+}
+
+.view-more{
+  position: absolute;
+  right: 0%;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
+
+.view-more:hover{
+   cursor: pointer;
+}
+
+
+
+#student_table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#student_table td, #student_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#student_table tr:nth-child(even){background-color: #f2f2f2;}
+
+#student_table tr:hover {background-color: #ddd;}
+
+#student_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
