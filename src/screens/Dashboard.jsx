@@ -12,6 +12,7 @@ import LoaderIcon from "react-loader-icon";
 const VotingContent = () => {
   const [studentNo, setStudentNo] = useState('');
   const [studentDetails, setstudentDetails] = useState({});
+  const [votedResults, setVotedResults] = useState([]);
   const [verifiedStudentDetails, setVerifiedStudentDetails] = useState({});
   const [foundStudentNo, setFoundStudentNo] = useState(false);
   const [selectedVote, setSelectedVote] = useState([]);
@@ -25,7 +26,9 @@ const VotingContent = () => {
 
 
   useEffect(() => {
-    console.log(Students);
+    console.log(getInformation());
+
+
   }, []);
 
   const addStudents = async () => {
@@ -93,11 +96,10 @@ const VotingContent = () => {
   const searchStudent = async () => {
     //db.collection('Voters').doc(studentNo).update({voted:true})
     const data = await getDocs(votersCollection);
-    setLoading(true)
     const studentListFound = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     const studentFound = studentListFound.find(value => value.studentNo === studentNo);
-
     if (studentFound) {
+      setLoading(true);
       setVerifiedStudentDetails(studentFound);
       if (studentFound.semesterCode === "S0") {
         setTimeout(() => {
@@ -124,9 +126,94 @@ const VotingContent = () => {
     }
   };
 
-  function getInformation() {
-    const categorizedData = [];
+  async function getInformation() {
+    var categorizedData = [];
+    var nomenie_results = {};
+    const data = await getDocs(voteCastedCollection);
+    const results = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    console.log(Categories);
+
+    Nominies.forEach(nominie => {
+      if (categorizedData.filter(value => { return value.student === nominie.student && value.category === nominie.categoryId }).length === 0) {
+        nomenie_results = {
+          name: nominie.name,
+          student: nominie.student,
+          category: nominie.categoryId,
+          categoryname: Categories.filter(value => { return value.categoryId === nominie.categoryId })[0],
+          score: results.filter(value => { return value.student === nominie.student && value.categoryId == nominie.categoryId }).length
+        }
+        categorizedData.push(nomenie_results)
+      }
+    });
+    setVotedResults(categorizedData.sort((a, b) => b.score - a.score));
+    console.log(categorizedData);
+
+
   }
+
+  let winners = <div className='stats_table'>
+    <h3>Winners</h3>
+    <table id='student_table'>
+      <thead>
+        <th>Categories</th>
+        <th>Winner</th>
+        <th>ID</th>
+        <th>Points</th>
+      </thead>
+      <tbody>
+        {Categories.map((cat, xid) => {
+          // Filter the votedResults by categoryId
+          const filteredResults = votedResults.filter(value => value.category === cat.categoryId);
+
+          // Sort filtered results by score in descending order and get the highest score
+          const highestScoreResult = filteredResults.length > 0
+            ? filteredResults.sort((a, b) => b.score - a.score)[0] // Sort and take the first (highest) score
+            : null;
+
+          return (
+            <tr key={xid}>
+              <td>{cat.categoryName}</td>
+              <td>{highestScoreResult ? highestScoreResult.name : 'No result'}</td> {/* Display name of the highest score */}
+              <td>{highestScoreResult ? highestScoreResult.student : 'N/A'}</td> {/* Display highest score */}
+              <td>{highestScoreResult ? highestScoreResult.score : 'N/A'}</td> {/* Display highest score */}
+
+            </tr>
+          );
+        })}
+
+
+      </tbody>
+    </table>
+
+    <div className='results'>
+      <h3>Scores per categories</h3>
+
+      {Categories.map((cat, xid) => (
+        <div key={xid} className='result_per_voters'>
+          <h5>{cat.categoryName}</h5>
+          <table id='student_table'>
+            <thead>
+              <th>name</th>
+              <th>ID</th>
+              <th>Points</th>
+            </thead>
+            <tbody>
+              {votedResults.filter(value => { return value.category === cat.categoryId }).map((result, zid) => (
+                <tr key={zid}>
+                  <td>{result.name}</td>
+                  <td>{result.student}</td>
+                  <td>{result.score}</td>
+
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+    </div>
+  </div>
+
+
 
   let deatil_modal = <Modal show={modalShow} onHide={() => setModalShow(false)} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
     <Modal.Header closeButton>
@@ -157,23 +244,7 @@ const VotingContent = () => {
         <button type="button" disabled={foundStudentNo} className='btn btn-primary' onClick={searchStudent}>Submit</button>
         {verifiedStudentDetails.semesterCode === "S0" ?
           <div className=''>
-            <table id='student_table'>
-              <thead>
-                <th>Categories</th>
-                <th>Winner</th>
-                <th>ID</th>
-                <th>Points</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Scrum</td>
-                  <td>Itu</td>
-                  <td>12345</td>
-                  <td>Points</td>
-                </tr>
-
-              </tbody>
-            </table>
+            {winners}
           </div>
           :
           <div className='content'>

@@ -73,6 +73,9 @@
    cursor: pointer;
 }
 
+.stats_table{
+  margin-top: 50px;
+}
 
 
 #student_table {
@@ -94,6 +97,10 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: rgba(20, 90, 152, 1);
   color: white;
+}
+
+.results, .result_per_voters{
+  margin-top: 20px;
 }
