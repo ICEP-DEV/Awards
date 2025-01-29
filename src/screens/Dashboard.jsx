@@ -9,6 +9,8 @@ import { addDoc, getDocs, collection, updateDoc, doc } from 'firebase/firestore'
 import Modal from 'react-bootstrap/Modal';
 import Loader from '../components/Loader';
 import LoaderIcon from "react-loader-icon";
+import { ToastContainer, toast } from 'react-toastify';
+
 const VotingContent = () => {
   const [studentNo, setStudentNo] = useState('');
   const [studentDetails, setstudentDetails] = useState({});
@@ -109,7 +111,17 @@ const VotingContent = () => {
         }, 3000);
       } else {
         if (studentFound.voted === 'true') {
-          alert('This student number has already voted');
+          setLoading(false);
+          toast('This student number has already voted', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         } else {
           //alert('Are you ready to vote')
           setTimeout(() => {
@@ -213,8 +225,6 @@ const VotingContent = () => {
     </div>
   </div>
 
-
-
   let deatil_modal = <Modal show={modalShow} onHide={() => setModalShow(false)} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
     <Modal.Header closeButton>
       <Modal.Title id="contained-modal-title-vcenter">
@@ -230,8 +240,8 @@ const VotingContent = () => {
   </Modal>
   return (
     <div style={{ paddingBottom: '50px' }}>
+      <ToastContainer />
       {loading && <Loader />}
-
       <div className='container'>
         <h2>Enter your Student Number</h2>
         <input
@@ -241,7 +251,7 @@ const VotingContent = () => {
           placeholder="Student Number"
           disabled={foundStudentNo}
         />
-        <button type="button" disabled={foundStudentNo} className='btn btn-primary' onClick={searchStudent}>Submit</button>
+        <button type="button" disabled={foundStudentNo} className='btn btn-primary' style={{ marginTop: '10px' }} onClick={searchStudent}>Submit</button>
         {verifiedStudentDetails.semesterCode === "S0" ?
           <div className=''>
             {winners}
@@ -249,38 +259,51 @@ const VotingContent = () => {
           :
           <div className='content'>
             {foundStudentNo ? <>
-              {Categories.map((category) => (
+              <div className='voter_details'>
+                <h5><label className='bold_voter_details'><b>Name</b> </label><span>: {verifiedStudentDetails.name}</span></h5>
+                <h5><label className='bold_voter_details'><b>Student Number</b> </label><span>: {verifiedStudentDetails.studentNo}</span></h5>
+              </div>
+              {Categories.map((category, xid) => (
                 <div className='category' key={category.categoryId}>
-                  <h4>{category.categoryName}</h4>
-                  <div className='nominations'>
-                    {Nominies.filter(nominie => nominie.categoryId === category.categoryId).map((nominie) => (
-                      <div key={nominie.student} className='nominie'>
-                        <label className='view-more' onClick={() => { setModalShow(true); setstudentDetails(nominie) }}>View</label>
-                        <img src={nominie.image} alt={nominie.name} className='nominie-image fluid m2' />
-                        <input
-                          type="radio"
-                          id={`${nominie.categoryId}-${nominie.student}`}
-                          name={nominie.categoryId}
-                          value={nominie.student}
-                          onChange={() => handleOptionChange(nominie.categoryId, nominie.student)}
-                          hidden
-                        />
-                        {/* Display button based on selection */}
-                        {selectedVote.some(vote => vote.student === nominie.student && vote.categoryId === nominie.categoryId) ? (
-                          <label className='btn btn-secondary btn-block vote-btn'>Selected</label>
-                        ) : (
-                          <label
-                            htmlFor={`${nominie.categoryId}-${nominie.student}`}
-                            className='btn btn-primary btn-block vote-btn'
-                          >
-                            Vote
-                          </label>
-                        )}
-                        {deatil_modal}
-                      </div>
+                  <h4>{xid+1} {category.categoryName}</h4>
+                  {Nominies.filter(value => { return value.student === studentNo && value.categoryId === category.categoryId }).length > 0 ?
+                    <>
+                      <h3 style={{ textAlign: 'center', backgroundColor: 'lightblue' }}>You are nominated to this category</h3>
+                    </>
+                    : <div className='nominations'>
+                      {Nominies.filter(nominie => nominie.categoryId === category.categoryId).map((nominie) => (
+                        <div key={nominie.student} className='nominie'>
+                          <label className='view-more' onClick={() => { setModalShow(true); setstudentDetails(nominie) }}>View</label>
+                          <img src={nominie.image} alt={nominie.name} className='nominie-image fluid m2' />
+                          <h5 className='nominie-name'>{nominie.name}</h5>
+                          <input
+                            type="radio"
+                            id={`${nominie.categoryId}-${nominie.student}`}
+                            name={nominie.categoryId}
+                            value={nominie.student}
+                            onChange={() => handleOptionChange(nominie.categoryId, nominie.student)}
+                            hidden
+                          />
+                          {/* Display button based on selection */}
+                          {selectedVote.some(vote => vote.student === nominie.student && vote.categoryId === nominie.categoryId) ? (
 
-                    ))}
-                  </div>
+                            <label className='btn btn-secondary btn-block vote-btn' >Selected</label>
+                          ) : (
+                            <label
+                              htmlFor={`${nominie.categoryId}-${nominie.student}`}
+                              className='btn btn-primary btn-block vote-btn'
+                            >
+                              Vote
+                            </label>
+                          )
+                          
+                          }
+                          {deatil_modal}
+                        </div>
+
+                      ))}
+                    </div>}
+
                 </div>
               ))}
               <span style={{ display: 'flex', flexDirection: 'row' }}>

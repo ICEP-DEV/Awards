@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import "react-toastify/dist/ReactToastify.css";
 import Dashboard from './screens/Dashboard'
 
 import './App.css';

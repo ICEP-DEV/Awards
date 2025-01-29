@@ -10,6 +10,16 @@
   padding-bottom:20px;
 }
 
+.voter_details{
+  padding: 50px 0;
+  background-color: #f2f2f2b4;
+  
+}
+
+.bold_voter_details{
+  width: 13%;
+}
+
 .nominations{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Responsive grid */
@@ -26,22 +36,18 @@
   border-radius: 10px;
   overflow: hidden; /* Ensures images don't overflow their containers */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  height: 40vh; 
+  width: 80%;
+  height: 43vh; 
   position: relative;
-  /*
-  margin: 10px;
-  text-align: center;
-  background-color: rgba(241, 240, 239, 0.644);
-  width: 20%;
-  height: 20%;
-  border-radius: 10px;*/
+
 }
 
 .nominie:hover{transform: scale(1.05)}
 
 .nominie-name{
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .nominie-image{
