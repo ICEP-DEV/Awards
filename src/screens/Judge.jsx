@@ -21,6 +21,8 @@ const Judge = () => {
     const [Comment, setComment] = useState('');
     const [FoundEmail, setFoundEmail] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [VotedProject, setVotedProject] = useState([]);
+    const [IsJudgeFound, setIsJudgeFound] = useState(false);
     const [JudgeFound, setJudgeFound] = useState({});
     const [ProjectFound, setProjectFound] = useState(false);
     const [SelectedProject, setSelectedProject] = useState({});
@@ -36,7 +38,7 @@ const Judge = () => {
 
     useEffect(() => {
 
-    })
+    }, [])
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -73,7 +75,9 @@ const Judge = () => {
         setLoading(true);
         if (judgeFound) {
             setLoading(false);
-            setJudgeFound(judgeFound)
+            setJudgeFound(judgeFound);
+            setFoundEmail(true);
+            getAllProjects();
         }
         else {
             setLoading(false);
@@ -81,8 +85,19 @@ const Judge = () => {
         }
     }
 
+    const clearEmail = () =>{
+        setEmail('')
+        setFoundEmail(false); 
+    }
+
     const getAllProjects = async () => {
-        
+        //Email
+        const data = await getDocs(votedProjectCollection);
+        const results = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+        console.log(results.filter(value => { return value.email.toLocaleLowerCase() === Email.toLocaleLowerCase() }));
+
+        setVotedProject(results.filter(value => { return value.email.toLocaleLowerCase() === Email.toLocaleLowerCase() }));
+
     }
 
     function selectToVote(event) {
@@ -106,17 +121,19 @@ const Judge = () => {
             project: SelectedProject.projectId,
             date: new Date().toString()
         }
-        
+        navigate(0)
+
+
         const response = await addDoc(votedProjectCollection, data)
-        if(response.id){
+        if (response.id) {
             alert('Successfully to voted');
             navigate(0)
 
         }
-        else{
+        else {
             alert('Unable to vote')
         }
-        
+
 
         // const response = await addDoc(voteCastedCollection, element);
     }
@@ -135,64 +152,64 @@ const Judge = () => {
                     disabled={FoundEmail}
                 />
                 <button type="button" disabled={FoundEmail} className='btn btn-primary' style={{ marginTop: '10px' }} onClick={searchJudge}>Submit</button>
+                <button type="button" disabled={!FoundEmail} className='btn btn-danger' style={{ marginTop: '10px' }} onClick={clearEmail}>Cancel</button>
 
-                {/* {JudgeFound ? <> */}
-                <select className='form-select' onChange={(event) => selectToVote(event.target.value)}>
-                    <option className='control-form' value={'#'}>---Select Project---</option>
-                    {Projects.map((project, xid) => (
-                        <option key={xid} value={project.projectId}>{project.name}</option>
-                    ))}
+                {FoundEmail ? <>
+                    <select className='form-select' onChange={(event) => selectToVote(event.target.value)}>
+                        <option className='control-form' value={'#'}>---Select Project---</option>
+                        {Projects.filter(value => { return VotedProject.some(voted => { return voted.project !== value.projectId }) }).map((project, xid) => (
+                            <option key={xid} value={project.projectId}>{project.name}</option>
+                        ))}
 
-                </select>
-                {ProjectFound ?
-                    <div>
-                        <div className='project-details'>
-                            <h4>{SelectedProject.name}</h4>
-                            <img src={SelectedProject.image} alt={SelectedProject.name} className='project-details-image' />
+                    </select>
+                    {ProjectFound ?
+                        <div>
+                            <div className='project-details'>
+                                <h4>{SelectedProject.name}</h4>
+                                <img src={SelectedProject.image} alt={SelectedProject.name} className='project-details-image' />
+                            </div>
+                            <table id='student_table' style={{ marginTop: '20px' }}>
+                                <thead>
+                                    <th style={{ width: '80%', marginTop: '20px' }}>Category</th>
+                                    <th>Score(1-5)</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Novelty</td>
+                                        <td><input type='tel' maxLength={1} name="novelty" onChange={handleChange} value={Score.novelty} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Usefulness</td>
+                                        <td><input type='tel' maxLength={1} name="usefulness" onChange={handleChange} value={Score.usefulness} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Feasibility</td>
+                                        <td><input type='tel' maxLength={1} name="feasibility" onChange={handleChange} value={Score.feasibility} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Technical Proficiency</td>
+                                        <td><input type='tel' maxLength={1} name="technicalProficiency" onChange={handleChange} value={Score.technicalProficiency} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Impact</td>
+                                        <td><input type='tel' maxLength={1} name="impact" onChange={handleChange} value={Score.impact} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Safety</td>
+                                        <td><input type='tel' maxLength={1} name="safety" onChange={handleChange} value={Score.safety} /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className='comment-section'>
+                                <label>Comment</label>
+                                <textarea rows={2} className='form-control' onChange={(event) => setComment(event.target.value)}></textarea>
+                            </div>
+
+                            <Button style={{ width: '100%' }} onClick={submitvote}>Submit Vote</Button>
                         </div>
-                        <table id='student_table' style={{ marginTop: '20px' }}>
-                            <thead>
-                                <th style={{ width: '80%', marginTop: '20px' }}>Category</th>
-                                <th>Score(1-5)</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Novelty</td>
-                                    <td><input type='tel' maxLength={1} name="novelty" onChange={handleChange} value={Score.novelty} /></td>
-                                </tr>
-                                <tr>
-                                    <td>Usefulness</td>
-                                    <td><input type='tel' maxLength={1} name="usefulness" onChange={handleChange} value={Score.usefulness} /></td>
-                                </tr>
-                                <tr>
-                                    <td>Feasibility</td>
-                                    <td><input type='tel' maxLength={1} name="feasibility" onChange={handleChange} value={Score.feasibility} /></td>
-                                </tr>
-                                <tr>
-                                    <td>Technical Proficiency</td>
-                                    <td><input type='tel' maxLength={1} name="technicalProficiency" onChange={handleChange} value={Score.technicalProficiency} /></td>
-                                </tr>
-                                <tr>
-                                    <td>Impact</td>
-                                    <td><input type='tel' maxLength={1} name="impact" onChange={handleChange} value={Score.impact} /></td>
-                                </tr>
-                                <tr>
-                                    <td>Safety</td>
-                                    <td><input type='tel' maxLength={1} name="safety" onChange={handleChange} value={Score.safety} /></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div className='comment-section'>
-                            <label>Comment</label>
-                            <textarea rows={2} className='form-control' onChange={(event) => setComment(event.target.value)}></textarea>
-                        </div>
-
-                        <Button style={{ width: '100%' }} onClick={submitvote}>Submit Vote</Button>
-                    </div>
-
-                    :
-                    <></>}
-
+                        :
+                        <></>}
+                </> : <></>}
             </div>
         </div>
     )
