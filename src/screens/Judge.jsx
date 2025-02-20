@@ -17,12 +17,12 @@ const Judge = () => {
     const judgeCollection = collection(db, 'judge');
     const votedProjectCollection = collection(db, 'VotedProject');
 
-    const [Email, setEmail] = useState('');
+    let [Email, setEmail] = useState('');
     const [Comment, setComment] = useState('');
     const [FoundEmail, setFoundEmail] = useState(false);
     const [loading, setLoading] = useState(false);
     const [VotedProject, setVotedProject] = useState([]);
-    const [IsJudgeFound, setIsJudgeFound] = useState(false);
+    const [AllProjects, setAllProjects] = useState([]);
     const [JudgeFound, setJudgeFound] = useState({});
     const [ProjectFound, setProjectFound] = useState(false);
     const [SelectedProject, setSelectedProject] = useState({});
@@ -37,8 +37,13 @@ const Judge = () => {
     })
 
     useEffect(() => {
-
-    }, [])
+        var user_id = localStorage.getItem('user_id') || "";
+        if (user_id !== "") {
+            setFoundEmail(true);
+            setEmail("admin@gmail.com");
+            getAllProjects();
+        }
+    })
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -73,21 +78,25 @@ const Judge = () => {
             return
         }
         setLoading(true);
-        if (judgeFound) {
-            setLoading(false);
-            setJudgeFound(judgeFound);
-            setFoundEmail(true);
-            getAllProjects();
-        }
-        else {
-            setLoading(false);
-            alert('This email is not allowed to cast vote');
-        }
+        setTimeout(() => {
+            if (judgeFound) {
+                localStorage.setItem('user_id', Email.toString());
+                setLoading(false);
+                setJudgeFound(judgeFound);
+                setFoundEmail(true);
+                getAllProjects();
+            }
+            else {
+                setLoading(false);
+                alert('This email is not allowed to cast vote');
+            }
+        }, 3000);
     }
 
-    const clearEmail = () =>{
+    const clearEmail = () => {
         setEmail('')
-        setFoundEmail(false); 
+        localStorage.removeItem('user_id')
+        setFoundEmail(false);
     }
 
     const getAllProjects = async () => {
@@ -121,19 +130,20 @@ const Judge = () => {
             project: SelectedProject.projectId,
             date: new Date().toString()
         }
-        navigate(0)
-
+        setLoading(true);
 
         const response = await addDoc(votedProjectCollection, data)
-        if (response.id) {
-            alert('Successfully to voted');
-            navigate(0)
+        setTimeout(() => {
+            if (response.id) {
+                alert('Successfully to voted');
+                navigate(0)
 
-        }
-        else {
-            alert('Unable to vote')
-        }
-
+            }
+            else {
+                alert('Unable to vote')
+            }
+            setLoading(false);
+        }, 3000);
 
         // const response = await addDoc(voteCastedCollection, element);
     }
@@ -145,6 +155,7 @@ const Judge = () => {
             <div className='container'>
                 <h2>Enter your email</h2>
                 <input
+                    value={Email}
                     type="text"
                     className='form-control'
                     onChange={(event) => setEmail(event.target.value)}
@@ -157,7 +168,9 @@ const Judge = () => {
                 {FoundEmail ? <>
                     <select className='form-select' onChange={(event) => selectToVote(event.target.value)}>
                         <option className='control-form' value={'#'}>---Select Project---</option>
-                        {Projects.filter(value => { return VotedProject.some(voted => { return voted.project !== value.projectId }) }).map((project, xid) => (
+                        {Projects.filter(project =>
+                            !VotedProject.some(voted => voted.project === project.projectId)
+                        ).map((project, xid) => (
                             <option key={xid} value={project.projectId}>{project.name}</option>
                         ))}
 
