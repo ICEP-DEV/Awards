@@ -29,8 +29,6 @@ const VotingContent = () => {
 
   useEffect(() => {
     console.log(getInformation());
-
-
   }, []);
 
   const addStudents = async () => {
@@ -41,6 +39,7 @@ const VotingContent = () => {
     }
     alert("All students added into the system");
   };
+
 
   const handleOptionChange = (categoryId, student) => {
     // Check if the vote for this category already exists
@@ -71,6 +70,8 @@ const VotingContent = () => {
     const votePromises = selectedVote.map(async (element) => {
       try {
         if (element) {
+          //element.voter = studentDetails.studentNo;
+          //  element.dateVoted = new Date();
           const response = await addDoc(voteCastedCollection, element);
           count++;
           console.log(response);
@@ -91,8 +92,6 @@ const VotingContent = () => {
       setLoading(false)
       alert('Submitted ' + count + ' votes');
     }, 3000);
-
-
   };
 
   const searchStudent = async () => {
@@ -265,7 +264,7 @@ const VotingContent = () => {
               </div>
               {Categories.map((category, xid) => (
                 <div className='category' key={category.categoryId}>
-                  <h4>{xid+1} {category.categoryName}</h4>
+                  <h4>{xid + 1} {category.categoryName}</h4>
                   {Nominies.filter(value => { return value.student === studentNo && value.categoryId === category.categoryId }).length > 0 ?
                     <>
                       <h3 style={{ textAlign: 'center', backgroundColor: 'lightblue' }}>You are nominated to this category</h3>
@@ -296,7 +295,7 @@ const VotingContent = () => {
                               Vote
                             </label>
                           )
-                          
+
                           }
                           {deatil_modal}
                         </div>
