@@ -10,9 +10,10 @@ import Modal from 'react-bootstrap/Modal';
 import Loader from '../components/Loader';
 import LoaderIcon from "react-loader-icon";
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Judge = () => {
-
+    const navigate = useNavigate();
     const judgeCollection = collection(db, 'judge');
     const votedProjectCollection = collection(db, 'VotedProject');
 
@@ -81,7 +82,7 @@ const Judge = () => {
     }
 
     const getAllProjects = async () => {
-
+        
     }
 
     function selectToVote(event) {
@@ -109,7 +110,8 @@ const Judge = () => {
         const response = await addDoc(votedProjectCollection, data)
         if(response.id){
             alert('Successfully to voted');
-            
+            navigate(0)
+
         }
         else{
             alert('Unable to vote')
