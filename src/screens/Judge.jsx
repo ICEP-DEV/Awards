@@ -199,41 +199,50 @@ const Judge = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Novelty</td>
+                                        <td><h4>Novelty</h4>
+                                        <p>How creative or
+                                        innovative is the idea or method used</p></td>
                                         <td><input type='tel' maxLength={1} name="novelty" onChange={handleChange} value={Score.novelty} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Usefulness</td>
+                                        <td><h4>Usefulness</h4>
+                                        <p>Market viability and usefulness: does this product have viability? are there people who can buy it and use it?</p></td>
                                         <td><input type='tel' maxLength={1} name="usefulness" onChange={handleChange} value={Score.usefulness} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Feasibility</td>
+                                        <td><h4>Feasibility</h4>
+                                        <p>How easily can it be implemented, at what cost and timeline</p></td>
                                         <td><input type='tel' maxLength={1} name="feasibility" onChange={handleChange} value={Score.feasibility} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Technical Proficiency</td>
+                                        <td><h4>Technical Proficiency</h4>
+                                        <p>How technically far along is it? How much code has been written and how much still to go? What is the quality of the code completed? Explain the programming language they used and how it came together</p></td>
                                         <td><input type='tel' maxLength={1} name="technicalProficiency" onChange={handleChange} value={Score.technicalProficiency} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Impact</td>
+                                        <td><h4>Impact</h4>
+                                        <p>What kind of impact will this have for users, how will it change their lives?</p></td>
                                         <td><input type='tel' maxLength={1} name="impact" onChange={handleChange} value={Score.impact} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Safety</td>
+                                        <td><h4>Safety</h4>
+                                        <p>How does the solution address information privacy and security?</p></td>
                                         <td><input type='tel' maxLength={1} name="safety" onChange={handleChange} value={Score.safety} /></td>
                                     </tr>
                                     <tr>
-                                        <td>User Experience</td>
+                                        <td><h4>User Experience</h4>
+                                        <p>User experience: what is the look and feel of the product? </p></td>
                                         <td><input type='tel' maxLength={1} name="userExperience" onChange={handleChange} value={Score.userExperience} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Presentation</td>
+                                        <td><h4>Presentation</h4>
+                                        <p>How is the pitch and delivery of the presentation?</p></td>
                                         <td><input type='tel' maxLength={1} name="presentation" onChange={handleChange} value={Score.presentation} /></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div className='comment-section'>
-                                <label>Comment</label>
+                                <h5>Comment</h5>
                                 <textarea rows={2} className='form-control' onChange={(event) => setComment(event.target.value)}></textarea>
                             </div>
 
