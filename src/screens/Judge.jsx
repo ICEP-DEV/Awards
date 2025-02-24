@@ -33,7 +33,9 @@ const Judge = () => {
         feasibility: 1,
         technicalProficiency: 1,
         impact: 1,
-        safety: 1
+        safety: 1,
+        userExperience: 1,
+        presentation: 1
     })
 
     useEffect(() => {
@@ -125,11 +127,20 @@ const Judge = () => {
             technicalProficiency: Score.technicalProficiency,
             impact: Score.impact,
             safety: Score.safety,
+            userExperience: Score.userExperience,
+            presentation: Score.presentation,
             comment: Comment,
             email: Email,
             project: SelectedProject.projectId,
-            date: new Date().toString()
+            date: new Date().toString(),
+            totalScore: Number(Score.novelty) + Number(Score.feasibility) + Number(Score.usefulness) + Number(Score.presentation) +
+                Number(Score.technicalProficiency) + Number(Score.impact) + Number(Score.safety) + Number(Score.userExperience)
+            // totalScore: Number(Score.novelty) * 0.15 + Number(Score.usefulness) * 0.15 + Number(Score.presentation) * 0.10 +
+            //     Number(Score.technicalProficiency) * 0.20 + Number(Score.feasibility) * 0.15 +
+            //     Number(Score.impact) * 0.5 + Number(Score.safety) * 0.10 + Number(Score.userExperience) * 0.10
         }
+        console.log(data);
+
         setLoading(true);
 
         const response = await addDoc(votedProjectCollection, data)
@@ -210,6 +221,14 @@ const Judge = () => {
                                     <tr>
                                         <td>Safety</td>
                                         <td><input type='tel' maxLength={1} name="safety" onChange={handleChange} value={Score.safety} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>User Experience</td>
+                                        <td><input type='tel' maxLength={1} name="userExperience" onChange={handleChange} value={Score.userExperience} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presentation</td>
+                                        <td><input type='tel' maxLength={1} name="presentation" onChange={handleChange} value={Score.presentation} /></td>
                                     </tr>
                                 </tbody>
                             </table>
