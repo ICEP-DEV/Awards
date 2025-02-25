@@ -17,12 +17,12 @@ const Judge = () => {
     const judgeCollection = collection(db, 'judge');
     const votedProjectCollection = collection(db, 'VotedProject');
 
-    const [Email, setEmail] = useState('');
+    let [Email, setEmail] = useState('');
     const [Comment, setComment] = useState('');
     const [FoundEmail, setFoundEmail] = useState(false);
     const [loading, setLoading] = useState(false);
     const [VotedProject, setVotedProject] = useState([]);
-    const [IsJudgeFound, setIsJudgeFound] = useState(false);
+    const [AllProjects, setAllProjects] = useState([]);
     const [JudgeFound, setJudgeFound] = useState({});
     const [ProjectFound, setProjectFound] = useState(false);
     const [SelectedProject, setSelectedProject] = useState({});
@@ -33,12 +33,19 @@ const Judge = () => {
         feasibility: 1,
         technicalProficiency: 1,
         impact: 1,
-        safety: 1
+        safety: 1,
+        userExperience: 1,
+        presentation: 1
     })
 
     useEffect(() => {
-
-    }, [])
+        var user_id = localStorage.getItem('user_id') || "";
+        if (user_id !== "") {
+            setFoundEmail(true);
+            setEmail(user_id);
+            getAllProjects();
+        }
+    })
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -73,21 +80,25 @@ const Judge = () => {
             return
         }
         setLoading(true);
-        if (judgeFound) {
-            setLoading(false);
-            setJudgeFound(judgeFound);
-            setFoundEmail(true);
-            getAllProjects();
-        }
-        else {
-            setLoading(false);
-            alert('This email is not allowed to cast vote');
-        }
+        setTimeout(() => {
+            if (judgeFound) {
+                localStorage.setItem('user_id', Email.toString());
+                setLoading(false);
+                setJudgeFound(judgeFound);
+                setFoundEmail(true);
+                getAllProjects();
+            }
+            else {
+                setLoading(false);
+                alert('This email is not allowed to cast vote');
+            }
+        }, 3000);
     }
 
-    const clearEmail = () =>{
-        Email.setEmail('')
-        setFoundEmail(false); 
+    const clearEmail = () => {
+        setEmail('')
+        localStorage.removeItem('user_id')
+        setFoundEmail(false);
     }
 
     const getAllProjects = async () => {
@@ -116,24 +127,34 @@ const Judge = () => {
             technicalProficiency: Score.technicalProficiency,
             impact: Score.impact,
             safety: Score.safety,
+            userExperience: Score.userExperience,
+            presentation: Score.presentation,
             comment: Comment,
             email: Email,
             project: SelectedProject.projectId,
-            date: new Date().toString()
+            date: new Date().toString(),
+            totalScore: Number(Score.novelty) + Number(Score.feasibility) + Number(Score.usefulness) + Number(Score.presentation) +
+                Number(Score.technicalProficiency) + Number(Score.impact) + Number(Score.safety) + Number(Score.userExperience)
+            // totalScore: Number(Score.novelty) * 0.15 + Number(Score.usefulness) * 0.15 + Number(Score.presentation) * 0.10 +
+            //     Number(Score.technicalProficiency) * 0.20 + Number(Score.feasibility) * 0.15 +
+            //     Number(Score.impact) * 0.5 + Number(Score.safety) * 0.10 + Number(Score.userExperience) * 0.10
         }
-        navigate(0)
+        console.log(data);
 
+        setLoading(true);
 
         const response = await addDoc(votedProjectCollection, data)
-        if (response.id) {
-            alert('Successfully to voted');
-            navigate(0)
+        setTimeout(() => {
+            if (response.id) {
+                alert('Successfully to voted');
+                navigate(0)
 
-        }
-        else {
-            alert('Unable to vote')
-        }
-
+            }
+            else {
+                alert('Unable to vote')
+            }
+            setLoading(false);
+        }, 3000);
 
         // const response = await addDoc(voteCastedCollection, element);
     }
@@ -145,6 +166,7 @@ const Judge = () => {
             <div className='container'>
                 <h2>Enter your email</h2>
                 <input
+                    value={Email}
                     type="text"
                     className='form-control'
                     onChange={(event) => setEmail(event.target.value)}
@@ -157,7 +179,9 @@ const Judge = () => {
                 {FoundEmail ? <>
                     <select className='form-select' onChange={(event) => selectToVote(event.target.value)}>
                         <option className='control-form' value={'#'}>---Select Project---</option>
-                        {Projects.filter(value => { return VotedProject.some(voted => { return voted.project !== value.projectId }) }).map((project, xid) => (
+                        {Projects.filter(project =>
+                            !VotedProject.some(voted => voted.project === project.projectId)
+                        ).map((project, xid) => (
                             <option key={xid} value={project.projectId}>{project.name}</option>
                         ))}
 
@@ -175,33 +199,50 @@ const Judge = () => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Novelty</td>
+                                        <td><h4>Novelty</h4>
+                                        <p>How creative or
+                                        innovative is the idea or method used</p></td>
                                         <td><input type='tel' maxLength={1} name="novelty" onChange={handleChange} value={Score.novelty} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Usefulness</td>
+                                        <td><h4>Usefulness</h4>
+                                        <p>Market viability and usefulness: does this product have viability? are there people who can buy it and use it?</p></td>
                                         <td><input type='tel' maxLength={1} name="usefulness" onChange={handleChange} value={Score.usefulness} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Feasibility</td>
+                                        <td><h4>Feasibility</h4>
+                                        <p>How easily can it be implemented, at what cost and timeline</p></td>
                                         <td><input type='tel' maxLength={1} name="feasibility" onChange={handleChange} value={Score.feasibility} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Technical Proficiency</td>
+                                        <td><h4>Technical Proficiency</h4>
+                                        <p>How technically far along is it? How much code has been written and how much still to go? What is the quality of the code completed? Explain the programming language they used and how it came together</p></td>
                                         <td><input type='tel' maxLength={1} name="technicalProficiency" onChange={handleChange} value={Score.technicalProficiency} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Impact</td>
+                                        <td><h4>Impact</h4>
+                                        <p>What kind of impact will this have for users, how will it change their lives?</p></td>
                                         <td><input type='tel' maxLength={1} name="impact" onChange={handleChange} value={Score.impact} /></td>
                                     </tr>
                                     <tr>
-                                        <td>Safety</td>
+                                        <td><h4>Safety</h4>
+                                        <p>How does the solution address information privacy and security?</p></td>
                                         <td><input type='tel' maxLength={1} name="safety" onChange={handleChange} value={Score.safety} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>User Experience</h4>
+                                        <p>User experience: what is the look and feel of the product? </p></td>
+                                        <td><input type='tel' maxLength={1} name="userExperience" onChange={handleChange} value={Score.userExperience} /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4>Presentation</h4>
+                                        <p>How is the pitch and delivery of the presentation?</p></td>
+                                        <td><input type='tel' maxLength={1} name="presentation" onChange={handleChange} value={Score.presentation} /></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div className='comment-section'>
-                                <label>Comment</label>
+                                <h5>Comment</h5>
                                 <textarea rows={2} className='form-control' onChange={(event) => setComment(event.target.value)}></textarea>
                             </div>
 

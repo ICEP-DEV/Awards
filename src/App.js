@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "react-toastify/dist/ReactToastify.css";
-import Dashboard from './screens/Dashboard'
+import Dashboard from './screens/Judge'
 
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
