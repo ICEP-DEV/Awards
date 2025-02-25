@@ -86,7 +86,7 @@ const Judge = () => {
     }
 
     const clearEmail = () =>{
-        setEmail('')
+        Email.setEmail('')
         setFoundEmail(false); 
     }
 
@@ -152,7 +152,7 @@ const Judge = () => {
                     disabled={FoundEmail}
                 />
                 <button type="button" disabled={FoundEmail} className='btn btn-primary' style={{ marginTop: '10px' }} onClick={searchJudge}>Submit</button>
-                <button type="button" disabled={!FoundEmail} className='btn btn-danger' style={{ marginTop: '10px' }} onClick={clearEmail}>Cancel</button>
+                <button type="button" disabled={!FoundEmail} className='btn btn-danger' style={{ marginTop: '10px', marginLeft:'10px' }} onClick={clearEmail}>Cancel</button>
 
                 {FoundEmail ? <>
                     <select className='form-select' onChange={(event) => selectToVote(event.target.value)}>
