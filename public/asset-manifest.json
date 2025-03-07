@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.72e8b511.css",
-    "main.js": "/static/js/main.2edef7a6.js",
+    "main.js": "/static/js/main.a9d8a887.js",
     "static/js/453.b62fd689.chunk.js": "/static/js/453.b62fd689.chunk.js",
     "static/media/clevertouch.jpg": "/static/media/clevertouch.e2207c44bddf165a0901.jpg",
     "static/media/TVHsystem.jpg": "/static/media/TVHsystem.bc53c03edc3695ceac23.jpg",
@@ -12,11 +12,11 @@
     "static/media/nexis.jpg": "/static/media/nexis.34cf660749b4274e749b.jpg",
     "index.html": "/index.html",
     "main.72e8b511.css.map": "/static/css/main.72e8b511.css.map",
-    "main.2edef7a6.js.map": "/static/js/main.2edef7a6.js.map",
+    "main.a9d8a887.js.map": "/static/js/main.a9d8a887.js.map",
     "453.b62fd689.chunk.js.map": "/static/js/453.b62fd689.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.72e8b511.css",
-    "static/js/main.2edef7a6.js"
+    "static/js/main.a9d8a887.js"
   ]
 }
