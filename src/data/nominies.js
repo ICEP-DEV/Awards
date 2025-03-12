@@ -41,6 +41,7 @@ import sibanda from '../assets/nominies/sibanda.jpg'
 import make from '../assets/nominies/sibanda.jpg'
 import ntombela from '../assets/nominies/ntombela.jpg'
 import mohapi from '../assets/nominies/mohapi.jpg'
+import netshivingane from '../assets/nominies/netshivingane.jpeg'
 
 import tba from '../assets/nominies/tba.jpg';
 
@@ -78,8 +79,9 @@ export const Nominies = [
 I protect my team in all terms and conditions that may come their way, I perform my duties as a scrum master flawlessly and always deliver in time, our team was able to tackle two project at the same time and deliver them on time, www.20from20.org is a proof of that, all because of my time management skill, Scrum Master skills and ability to deliver on time.
 `, image: sibanda, categoryId: 'TSMRS2', student: '222108144'
     },
-    { name: 'Buhlaluse Ngcobo', motivation: `I excel at fostering collaboration and resolving conflicts swiftly, ensuring a harmonious team dynamic. My motivational skills inspire team members to consistently deliver their best, while my proactive approach drives continuous improvement. I am deeply committed to going the extra mile, whether through removing impediments, ensuring clarity in goals, or providing support beyond my role. My focus on team success and delivering value makes me a deserving candidate for this recognition. `, image: Ngcobo, categoryId: 'TSMRS2', student: '221095634' }, 
-    { name: 'Sinenhlanhla Ntombela', motivation: `I’m excited to submit my application for the Scrum Master of the Year award. As someone who is truly passionate about Agile principles and the Scrum framework, I’ve always strived to create an environment where collaboration, transparency, and continuous improvement aren’t just buzzwords—they’re the driving forces behind everything we do as a team.
+    { name: 'Buhlaluse Ngcobo', motivation: `I excel at fostering collaboration and resolving conflicts swiftly, ensuring a harmonious team dynamic. My motivational skills inspire team members to consistently deliver their best, while my proactive approach drives continuous improvement. I am deeply committed to going the extra mile, whether through removing impediments, ensuring clarity in goals, or providing support beyond my role. My focus on team success and delivering value makes me a deserving candidate for this recognition. `, image: Ngcobo, categoryId: 'TSMRS2', student: '221095634' },
+    {
+        name: 'Sinenhlanhla Ntombela', motivation: `I’m excited to submit my application for the Scrum Master of the Year award. As someone who is truly passionate about Agile principles and the Scrum framework, I’ve always strived to create an environment where collaboration, transparency, and continuous improvement aren’t just buzzwords—they’re the driving forces behind everything we do as a team.
 
 Throughout my journey as a Scrum Master, I’ve focused on building a culture rooted in trust, accountability, and open communication. I believe in empowering my team members and facilitating honest, meaningful conversations that help us overcome challenges and reach our goals. My greatest joy comes from helping others unlock their potential—whether that’s through coaching, guidance, or just providing support when things get tough.
 
@@ -99,18 +101,11 @@ Being considered for the Scrum Master of the Year award would be a tremendous ho
 
 Thank you for considering my application. I’m confident that my passion, leadership, and commitment to continuous improvement make me a strong candidate. I’m excited to continue growing in my role as a Scrum Master and contributing to the success of future teams.
 
-Warm regards, [Sinenhlanhla]`, image: ntombela, categoryId: 'TSMRS2', student: '221376510' },
+Warm regards, [Sinenhlanhla]`, image: ntombela, categoryId: 'TSMRS2', student: '221376510'
+    },
 
-    // Top Network Support Technician Award(Other) S2
-    {
-        name: 'RZ Malatji ', motivation: `I feel highly esteemed to be among the candidates for the ICEP awards. I am confident that my dedication, hard work, and passion for excellence make me an ideal candidate for this recognition. One of the most rewarding aspects of my industrial exposure has been the opportunity to apply theoretical knowledge to practical real-world scenarios.  This experience has not only deepened my understanding of key concepts but also instilled in me a sense of purpose and fulfillment.  I have also learned the importance of teamwork, communication, and problem-solving. I believe this award will recognise my achievements and inspire me to continue making a positive impact in my profession.`,
-        image: malatji, categoryId: 'TNSTAS2', student: '2221066677'
-    },
-    {
-        name: 'SS Shiba ', motivation: `A journey marked by struggles with self-doubt, uncertainty, and the fear of being heard. But despite these obstacles, I've discovered a strength within me that I never knew existed. This year has been a transformative ride, one that has taught me to embrace my voice, to trust my instincts, and to believe in myself. I've learned to express myself authentically, without apology, and to stand tall in the face of adversity. I deserve to win not just for my achievements, but for the courage I've found within myself to keep going, even when it felt like the world was against me. As I look to the future, I know that I am capable of overcoming any obstacle, and that my voice will be heard.`, image: shiba, categoryId: 'TNSTAS2', student: '221486030'
-    },
-    { name: 'S Xhamfu ', motivation: `I am honored to be considered for the ICEP Award. I believe I deserve this award because of my consistent dedication and hard work. This award would be a recognition of not just my accomplishments, but of the collaborative effort and perseverance that I bring to everything I do.`, image: xhamfu, categoryId: 'TNSTAS2', student: '222790395' },
-    { name: 'SS Ndlovu  ', motivation: `I've consistently demonstrated dedication, resilience, and a passion for excellence. Through hard work and perseverance.`, image: ndlovu, categoryId: 'TNSTAS2', student: '221451805' },
+    // Iron pillar Award Network Support Technician S2
+    { name: 'S Xhamfu ', motivation: `I am honored to be considered for the ICEP Award. I believe I deserve this award because of my consistent dedication and hard work. This award would be a recognition of not just my accomplishments, but of the collaborative effort and perseverance that I bring to everything I do.`, image: xhamfu, categoryId: 'IPNSS2', student: '222790395' },
     {
         name: 'W Hlungwani ', motivation: `Greetings,My name is Hlungwani Welcome an Intern at ICEP as Support Engineer for TUT ICT Services and I am honoured to submit my candidacy for the Best Intern at ICEP. Throughout my time as a Support Engineer Intern, I have consistently strived to go beyond the expectations of my role by demonstrating initiative, dedication, and a strong problem-solving mindset.
 
@@ -122,7 +117,7 @@ Warm regards, [Sinenhlanhla]`, image: ntombela, categoryId: 'TSMRS2', student: '
 
                             Sincerely,
                             Hlungwani Welcome
-                            221069404`, image: hlungwani, categoryId: 'TNSTAS2', student: '221069404'
+                            221069404`, image: hlungwani, categoryId: 'IPNSS2', student: '221069404'
     },
     {
         name: 'LB Mthombeni ', motivation: `
@@ -132,11 +127,11 @@ Warm regards, [Sinenhlanhla]`, image: ntombela, categoryId: 'TSMRS2', student: '
 
             I would be truly honoured to receive your vote, as I continue to strive for excellence in the future.
 
-            Thank you for your time and consideration.`, image: mthombeni, categoryId: 'TNSTAS2', student: '220728927'
+            Thank you for your time and consideration.`, image: mthombeni, categoryId: 'IPNSS2', student: '220728927'
     },
     {
         name: 'MM Matlala ', motivation: `I'm committed to my work, by that I mean I perform all activities I'm given to accomplish. I also cable of working with my team members nor colleagues in the field. It's all about time so we surrounding on time`,
-        image: matlala, categoryId: 'TNSTAS2', student: '220103447'
+        image: matlala, categoryId: 'IPNSS2', student: '220103447'
     },
 
     //	Iron pillar Award Plokwane S2
@@ -216,7 +211,8 @@ reflect ICEP’s values, and demonstrate technology’s transformative power in 
 
     //Iron pillar Award Emalahleni S2
     { name: 'Dennis Ramara', motivation: `When I began the internship, I focused exclusively on backend development. However, I quickly expanded my role by leading the backend team, and helping with the integration of backend APIs with the frontend. My proactive approach and problem-solving skills have made me the go-to person for resolving some coding issues. This adaptability and leadership have significantly contributed to our team’s success. I am honoured to be nominated for the Intern of the Semester and Iron Pillar Awards, as they recognize my growth, dedication, and impactful contributions to our project.`, image: Ramara, categoryId: 'IPAES2', student: '222997496' },
-    { name: 'Thandeka Nkadimeng', motivation: `Dear ICEP Management Team,
+    {
+        name: 'Thandeka Nkadimeng', motivation: `Dear ICEP Management Team,
 
 I am honoured to express my motivation for being recognized as the Best Intern 2024 at ICEP. Being a Software Developer Intern at ICEP has been an incredible journey of learning, growth, and hands-on experience in the tech industry. This opportunity has allowed me to refine my technical skills, enhance my problem-solving abilities, and contribute meaningfully to real-world projects.
 
@@ -228,7 +224,8 @@ Being recognized as the Best Intern 2024 would be a testament to my dedication, 
 
 Thank you for considering my application. I look forward to continuing to grow as a developer and making a lasting impact at ICEP.
 
-Sincerely, Thandeka Nkadimeng`, image: NKADIMENG, categoryId: 'IPAES2', student: '223179460' },
+Sincerely, Thandeka Nkadimeng`, image: NKADIMENG, categoryId: 'IPAES2', student: '223179460'
+    },
     {
         name: 'Palesa Ramasenya', motivation: `I am deeply honored to be nominated for the ICEP Awards. My dedication to fostering 
 collaboration, driving impactful results, and being a reliable pillar of support has consistently 
@@ -239,7 +236,8 @@ organization. Thank you for considering me for this prestigious recognition`, im
     },
 
     //Iron pillar Award Soshanguve S1
-    { name: 'Kamohelo Mohapi', motivation: `I am deeply honored to be nominated for the Intern of the Year and Iron Pillar Awards. I am writing this motivation to express my gratitude and to highlight my dedication, achievements, and the impact I have made during my internship.
+    {
+        name: 'Kamohelo Mohapi', motivation: `I am deeply honored to be nominated for the Intern of the Year and Iron Pillar Awards. I am writing this motivation to express my gratitude and to highlight my dedication, achievements, and the impact I have made during my internship.
 
 Throughout my internship, I have consistently demonstrated a strong work ethic, enthusiasm, and a commitment to excellence. I have embraced every opportunity to learn, contribute, and grow both professionally and personally. As a backend developer, I played a crucial role in building and maintaining robust, scalable, and efficient systems that support the organization’s mission and operational needs.
 
@@ -256,7 +254,8 @@ I believe that my dedication, the tangible impact of my work, and my commitment 
 Thank you for considering my application. I am confident that my passion, achievements, and unwavering determination align with the spirit of these awards.
 
 Sincerely,  
-Kamohelo Mohapi`, image: mohapi, categoryId: 'IPASS1', student: '218501036' },
+Kamohelo Mohapi`, image: mohapi, categoryId: 'IPASS1', student: '218501036'
+    },
     {
         name: 'Nkoane Kabelo', motivation: `I am honored to be nominated for the ICEP Awards. As an Intern, I’ve approached 
 challenges with creativity, delivering innovative solutions that enhance user experiences 
@@ -291,7 +290,13 @@ teams while exceeding organizational expectations.`, image: Mokoena, categoryId:
     truly grateful for the recognition. Thank you for this opportunity to share my contributions, and I 
     look forward to continuing to make a positive impact at ICEP.`, image: Nevondo, categoryId: 'HHAPS2', student: '221580818'
     },
-    { name: 'Karabo Netshivingane', motivation: `#`, image: tba, categoryId: 'HHAPS2', student: '#' },
+    { name: 'Karabo Netshivingane', motivation: `Dear ICEP Awards Committee,
+I am truly honored to have been nominated for the ICEP Awards Ceremony. This nomination represents not only my dedication and hard work but also the impact of the We Mentor system, which I had the privilege of developing during my time at ICEP.
+Working on We Mentor was more than just a technical challenge—it was an opportunity to create a platform that fosters growth, mentorship, and knowledge-sharing among students. As the frontend developer, I played a key role in designing and implementing a user-friendly interface that enhances the mentorship experience. Through this project, I deepened my expertise in React.js, UI/UX design, ASP.NET, MySQL, cloud technologies and system integration, while also gaining valuable experience in problem-solving and teamwork.
+ICEP has been a crucial part of my professional development, exposing me to real-world software development practices and encouraging me to apply my skills in meaningful ways. This journey has reinforced my passion for technology and my commitment to building solutions that make a difference.
+Being recognized for this award motivates me to continue pushing boundaries, improving my skills, and contributing to innovative projects that drive positive change. I am grateful to the ICEP mentors, colleagues, and leadership who have guided and supported me throughout this experience.
+Thank you for this incredible recognition. Regardless of the outcome, this nomination is a milestone in my journey, and I am excited about the future contributions I can make in the field of software development.
+Sincerely, Karabo Nechivhangani`, image: netshivingane, categoryId: 'HHAPS2', student: '#' },
     {
         name: 'Sfiso Vinjwa', motivation: `"Turning the Impossible into Achievable: A Testament to Innovation and Dedication”
         I am honored to be nominated for the ICEP Awards. What sets me apart the most is my passion for 
@@ -304,16 +309,72 @@ teams while exceeding organizational expectations.`, image: Mokoena, categoryId:
         dedication to excellence`, image: Vinjwa, categoryId: 'HHAPS2', student: '221455436'
     },
 
+    // Helping hand Award in Network Support Technician S2
+    {
+        name: 'RZ Malatji ', motivation: `I feel highly esteemed to be among the candidates for the ICEP awards. I am confident that my dedication, hard work, and passion for excellence make me an ideal candidate for this recognition. One of the most rewarding aspects of my industrial exposure has been the opportunity to apply theoretical knowledge to practical real-world scenarios.  This experience has not only deepened my understanding of key concepts but also instilled in me a sense of purpose and fulfillment.  I have also learned the importance of teamwork, communication, and problem-solving. I believe this award will recognise my achievements and inspire me to continue making a positive impact in my profession.`,
+        image: malatji, categoryId: 'HNSTSS2', student: '2221066677'
+    },
+    {
+        name: 'SS Shiba ', motivation: `A journey marked by struggles with self-doubt, uncertainty, and the fear of being heard. But despite these obstacles, I've discovered a strength within me that I never knew existed. This year has been a transformative ride, one that has taught me to embrace my voice, to trust my instincts, and to believe in myself. I've learned to express myself authentically, without apology, and to stand tall in the face of adversity. I deserve to win not just for my achievements, but for the courage I've found within myself to keep going, even when it felt like the world was against me. As I look to the future, I know that I am capable of overcoming any obstacle, and that my voice will be heard.`, image: shiba, categoryId: 'HNSTSS2', student: '221486030'
+    },
+    { name: 'SS Ndlovu  ', motivation: `I've consistently demonstrated dedication, resilience, and a passion for excellence. Through hard work and perseverance.`, image: ndlovu, categoryId: 'HNSTSS2', student: '221451805' },
+    {
+        name: 'W Hlungwani ', motivation: `Greetings,My name is Hlungwani Welcome an Intern at ICEP as Support Engineer for TUT ICT Services and I am honoured to submit my candidacy for the Best Intern at ICEP. Throughout my time as a Support Engineer Intern, I have consistently strived to go beyond the expectations of my role by demonstrating initiative, dedication, and a strong problem-solving mindset.
+
+                            I have taken every opportunity to learn, adapt, and contribute to the success of the team. My ability to tackle complex technical challenges, provide exceptional support to clients at Tshwane University of Technology, and collaborate effectively with colleagues has enabled me to make a significant impact during my internship. I am always eager to improve my skills, I believe this constant growth mindset has allowed me to deliver quality results consistently.
+
+                            Winning this award would not only be a reflection of my hard work and commitment but also of the incredible support and mentorship I have received from both ICT Services and ICEP. I am confident that I will continue to contribute positively to the company and grow as a professional in the years to come.
+
+                            Thank you for considering my candidacy.
+
+                            Sincerely,
+                            Hlungwani Welcome
+                            221069404`, image: hlungwani, categoryId: 'HNSTSS2', student: '221069404'
+    },
+    {
+        name: 'LB Mthombeni ', motivation: `
+            Hello everyone, my name is Lesedi Mthombeni and I am writing this to express my interest in being considered for the award in ICT services under ICEP for the past six months.
+
+            Over the past six months, I have worked tirelessly, learning, adapting, and growing to provide support and solutions. I have faced so many challenges, but I turned them into opportunities to improve. The experience taught me the importance of teamwork, problem-solving, commitment and I believe these made me a strong candidate for this Award.
+
+            I would be truly honoured to receive your vote, as I continue to strive for excellence in the future.
+
+            Thank you for your time and consideration.`, image: mthombeni, categoryId: 'HNSTSS2', student: '220728927'
+    },
+
     //Helping hand Award Emalahleni S1
-    { name: 'Maanda Adivhaho', motivation: `Progress, not perfection`, image: maanda, categoryId: 'HHAES1', student: '222266971' },
-    { name: 'Boikanyo Mohlamonyane', motivation: `Learn ,grow and inspire -every day is a step toward greatness`, image: Boikanyo, categoryId: 'HHAES1', student: '224504217' },
+    { name: 'Maanda Adivhaho', motivation: `Dear ICEP
+During my internship, I worked as a full-stack developer, bridging front-end and back-end
+technologies to build functional, user-friendly applicationsand collaborated with my team
+to deliver projects that exceeded expectations. One of my key accomplishments was
+[specific achievement, developing a feature that improved user engagement for a clientfacing web platform,which demonstrated my ability to balance technical precision with
+real-world utility.What sets me apart is my commitment to learning and adaptability. As an
+intern, I didn’t just follow instructions—I sought out opportunities to improve processes,
+explore new tools like docker retrofit or Node.js and support my team’s goals. My proactive
+approach and enthusiasm for problem-solving allowed me to contribute meaningfully,
+even with limited experience, proving that determination and skill can create value at any
+level.`, image: maanda, categoryId: 'HHAES1', student: '222266971' },
+    { name: 'Boikanyo Mohlamonyane', motivation: `Dear Selection Committee,
+
+I am writing to express why I believe I deserve the Information Community Engagement Programme Award. As a mobile developer intern, I have consistently gone above and beyond to create impactful solutions that connect technology with community needs. My work has focused on developing accessible and user-friendly mobile applications that empower individuals, particularly in underserved communities, to engage with digital tools effectively.
+
+Throughout my internship, I have demonstrated a strong commitment to collaboration, innovation, and community impact. I have worked closely with diverse teams to ensure our projects address real-world challenges and align with the goals of digital inclusion. My ability to simplify complex technical concepts into practical, user-centric solutions has been a key factor in the success of my projects.
+
+I deserve this award because my contributions reflect the core values of innovation, community engagement, and dedication to creating meaningful change. This recognition would not only honor my efforts but also motivate me to continue leveraging technology for the betterment of society.
+
+Thank you for considering my application.
+
+Sincerely,
+
+Boikanyo Mohlamonyane`, image: Boikanyo, categoryId: 'HHAES1', student: '224504217' },
     { name: 'Buhle Masilela', motivation: `I am honored to be nominated for the ICEP Awards. During my time at ICEP Emalahleni, I dedicated myself to developing innovative solutions, optimizing systems, and collaborating with teams to enhance efficiency. My passion for technology and problem-solving drove me to go beyond expectations, ensuring that my contributions were impactful. I embraced challenges as learning opportunities and worked to inspire and uplift those around me. This nomination represents my dedication and hard work, and I am grateful for the recognition. Thank you for your support!`, image: Masilela, categoryId: 'HHAES1', student: '221592280' },
 
     //Helping hand Award Emalahleni S2
     {
         name: 'Khanyisile Mthombeni', motivation: `I am very honoured to be nominated for the helping hand award, which is a true reflection of what my aim was when I was selected to become an intern at ICEP. Helping and being hands-on not only means that all the work gets done but it also means that I am gaining experience that I would have otherwise not had or gained. Winning this award would not only mean that my actions are of importance but it would also mean that the work I do is recognised and appreciated.`, image: mthombeni_e, categoryId: 'HHAES2', student: '224343582'
     },
-    { name: 'David Kgobe', motivation: `Dear Members of the Award Committee,
+    {
+        name: 'David Kgobe', motivation: `Dear Members of the Award Committee,
 
 
 I am truly honoured to be nominated for an award. This recognition reaffirms my dedication to contributing meaningfully to the organisation while maximising my learning experience.
@@ -333,8 +394,9 @@ Thank you for your time and for this incredible opportunity.
 
 Sincerely,
 
-Kgobe SN`, image: kgobe, categoryId: 'HHAES2', student: '219995164' },
-    { name: 'Phumudzo Mawela', motivation: `Receiving this award would be a powerful reminder of the hard work, dedication, and passion I pour into my endeavours. I am driven by a desire to make a meaningful impact, constantly pushing myself to achieve excellence while supporting and uplifting those around me. Every step of my journey has been shaped by perseverance, innovation, and a commitment to growth. This recognition would not only honour past achievements but also inspire me to continue striving for even greater success and contributing positively to my community and field.`, image: mawela , categoryId: 'HHAES2', student: '220517160' },
+Kgobe SN`, image: kgobe, categoryId: 'HHAES2', student: '219995164'
+    },
+    { name: 'Phumudzo Mawela', motivation: `Receiving this award would be a powerful reminder of the hard work, dedication, and passion I pour into my endeavours. I am driven by a desire to make a meaningful impact, constantly pushing myself to achieve excellence while supporting and uplifting those around me. Every step of my journey has been shaped by perseverance, innovation, and a commitment to growth. This recognition would not only honour past achievements but also inspire me to continue striving for even greater success and contributing positively to my community and field.`, image: mawela, categoryId: 'HHAES2', student: '220517160' },
 
     //Helping hand Award Soshanguve S1
     {
@@ -372,7 +434,8 @@ deserving candidate for this award.`, image: make, categoryId: 'HHASS1', student
     contribution of innovative ideas have furthered the unit’s mission. I prioritize teamwork across 
     teams while exceeding organizational expectations.`, image: Mokoena, categoryId: 'HHASS2', student: '219589115'
     },
-    { name: 'Lunga Ntshingila', motivation: `I am extremely grateful to be nominated for the Helping Hand category of the ICEP Awards. As
+    {
+        name: 'Lunga Ntshingila', motivation: `I am extremely grateful to be nominated for the Helping Hand category of the ICEP Awards. As
 someone who is still new and adapting to my role, this recognition means a great deal to me. My
 work has focused on gaining experience in both frontend and backend development, and I have had
 the privilege of collaborating with a talented team on a Technical Support Logging System. Through
@@ -383,8 +446,48 @@ What sets me apart is my eagerness to learn and my dedication to improving with 
 opportunity. I have also had the chance to work with new interns from outside our group, which has
 broadened my perspective and contributed to our collective success. This nomination reflects not
 only my efforts but also the collaborative spirit of those who have supported and guided me. I am
-truly grateful for this recognition and excited to continue contributing to meaningful projects.`, image: Mngomezulu, categoryId: 'HHASS2', student: '222883750' },
+truly grateful for this recognition and excited to continue contributing to meaningful projects.`, image: Mngomezulu, categoryId: 'HHASS2', student: '222883750'
+    },
     { name: 'Blessings Mwale', motivation: `You are only as good as your team`, image: Mwale, categoryId: 'HHASS2', student: '219781660' },
+
+
+    // Intern of the Semester Award in Network Support Technician Soshanguve S1
+    {
+        name: 'RZ Malatji ', motivation: `I feel highly esteemed to be among the candidates for the ICEP awards. I am confident that my dedication, hard work, and passion for excellence make me an ideal candidate for this recognition. One of the most rewarding aspects of my industrial exposure has been the opportunity to apply theoretical knowledge to practical real-world scenarios.  This experience has not only deepened my understanding of key concepts but also instilled in me a sense of purpose and fulfillment.  I have also learned the importance of teamwork, communication, and problem-solving. I believe this award will recognise my achievements and inspire me to continue making a positive impact in my profession.`,
+        image: malatji, categoryId: 'INSTSS2', student: '2221066677'
+    },
+    {
+        name: 'SS Shiba ', motivation: `A journey marked by struggles with self-doubt, uncertainty, and the fear of being heard. But despite these obstacles, I've discovered a strength within me that I never knew existed. This year has been a transformative ride, one that has taught me to embrace my voice, to trust my instincts, and to believe in myself. I've learned to express myself authentically, without apology, and to stand tall in the face of adversity. I deserve to win not just for my achievements, but for the courage I've found within myself to keep going, even when it felt like the world was against me. As I look to the future, I know that I am capable of overcoming any obstacle, and that my voice will be heard.`, image: shiba, categoryId: 'INSTSS2', student: '221486030'
+    },
+    { name: 'S Xhamfu ', motivation: `I am honored to be considered for the ICEP Award. I believe I deserve this award because of my consistent dedication and hard work. This award would be a recognition of not just my accomplishments, but of the collaborative effort and perseverance that I bring to everything I do.`, image: xhamfu, categoryId: 'INSTSS2', student: '222790395' },
+    { name: 'SS Ndlovu  ', motivation: `I've consistently demonstrated dedication, resilience, and a passion for excellence. Through hard work and perseverance.`, image: ndlovu, categoryId: 'INSTSS2', student: '221451805' },
+    {
+        name: 'W Hlungwani ', motivation: `Greetings,My name is Hlungwani Welcome an Intern at ICEP as Support Engineer for TUT ICT Services and I am honoured to submit my candidacy for the Best Intern at ICEP. Throughout my time as a Support Engineer Intern, I have consistently strived to go beyond the expectations of my role by demonstrating initiative, dedication, and a strong problem-solving mindset.
+
+                            I have taken every opportunity to learn, adapt, and contribute to the success of the team. My ability to tackle complex technical challenges, provide exceptional support to clients at Tshwane University of Technology, and collaborate effectively with colleagues has enabled me to make a significant impact during my internship. I am always eager to improve my skills, I believe this constant growth mindset has allowed me to deliver quality results consistently.
+
+                            Winning this award would not only be a reflection of my hard work and commitment but also of the incredible support and mentorship I have received from both ICT Services and ICEP. I am confident that I will continue to contribute positively to the company and grow as a professional in the years to come.
+
+                            Thank you for considering my candidacy.
+
+                            Sincerely,
+                            Hlungwani Welcome
+                            221069404`, image: hlungwani, categoryId: 'INSTSS2', student: '221069404'
+    },
+    {
+        name: 'LB Mthombeni ', motivation: `
+            Hello everyone, my name is Lesedi Mthombeni and I am writing this to express my interest in being considered for the award in ICT services under ICEP for the past six months.
+
+            Over the past six months, I have worked tirelessly, learning, adapting, and growing to provide support and solutions. I have faced so many challenges, but I turned them into opportunities to improve. The experience taught me the importance of teamwork, problem-solving, commitment and I believe these made me a strong candidate for this Award.
+
+            I would be truly honoured to receive your vote, as I continue to strive for excellence in the future.
+
+            Thank you for your time and consideration.`, image: mthombeni, categoryId: 'INSTSS2', student: '220728927'
+    },
+    {
+        name: 'MM Matlala ', motivation: `I'm committed to my work, by that I mean I perform all activities I'm given to accomplish. I also cable of working with my team members nor colleagues in the field. It's all about time so we surrounding on time`,
+        image: matlala, categoryId: 'INSTSS2', student: '220103447'
+    },
 
     //Intern of the Semester Award Soshanguve S1
     { name: 'Lebogang Raphela', motivation: `You are braver than you believe, stronger than you seem, and smarter than you think `, image: Raphela, categoryId: 'IOSASS1', student: '217475333' },
@@ -396,7 +499,8 @@ truly grateful for this recognition and excited to continue contributing to mean
     impactful solutions and a supportive community. I am grateful to be part of this 
     transformative journey`, image: nkoane, categoryId: 'IOSASS1', student: '216749600'
     },
-    { name: 'Kamohelo Mohapi', motivation: `I am deeply honored to be nominated for the Intern of the Year and Iron Pillar Awards. I am writing this motivation to express my gratitude and to highlight my dedication, achievements, and the impact I have made during my internship.
+    {
+        name: 'Kamohelo Mohapi', motivation: `I am deeply honored to be nominated for the Intern of the Year and Iron Pillar Awards. I am writing this motivation to express my gratitude and to highlight my dedication, achievements, and the impact I have made during my internship.
 
 Throughout my internship, I have consistently demonstrated a strong work ethic, enthusiasm, and a commitment to excellence. I have embraced every opportunity to learn, contribute, and grow both professionally and personally. As a backend developer, I played a crucial role in building and maintaining robust, scalable, and efficient systems that support the organization’s mission and operational needs.
 
@@ -413,10 +517,12 @@ I believe that my dedication, the tangible impact of my work, and my commitment 
 Thank you for considering my application. I am confident that my passion, achievements, and unwavering determination align with the spirit of these awards.
 
 Sincerely,  
-Kamohelo Mohapi`, image: mohapi, categoryId: 'IOSASS1', student: '218501036' },
+Kamohelo Mohapi`, image: mohapi, categoryId: 'IOSASS1', student: '218501036'
+    },
 
     //Intern of the Semester Award Soshanguve S2
-    { name: 'Jonathan Moatshe', motivation: `Dear Selection Committee,
+    {
+        name: 'Jonathan Moatshe', motivation: `Dear Selection Committee,
 I am honoured to be nominated for the Intern of the Semester award at ICEP.
 This recognition reflects the dedication and passion I bring to my role as a
 Frontend Developer, and I am excited to share why I believe I am deserving of
@@ -440,8 +546,10 @@ collaborative spirit make me a strong candidate for this award.
 I am deeply grateful for this nomination, which inspires me to continue striving
 for excellence and making meaningful contributions to ICEP.
 Sincerely,
-Keamogetswe Jonathan Moatshe`, image: Moatshe, categoryId: 'IOSASS2', student: '216500695' },
-    { name: 'Phindile Mabaso', motivation: `I am truly honoured to be nominated for the ICEP Awards. Over the past
+Keamogetswe Jonathan Moatshe`, image: Moatshe, categoryId: 'IOSASS2', student: '216500695'
+    },
+    {
+        name: 'Phindile Mabaso', motivation: `I am truly honoured to be nominated for the ICEP Awards. Over the past
 six months as a front-end developer and UI/UX designer, this journey
 has been nothing short of incredible. I’ve grown not just in technical
 skills—learning new tools and programming languages—but also as a
@@ -452,8 +560,10 @@ passion for creating user-friendly designs, and the effort I’ve put into
 becoming a strong team player. The experience has shaped me both
 professionally and personally, and I’m incredibly proud of the progress
 I’ve made. This nomination is a reflection of how far I’ve come, and I’m
-excited to continue growing and contributing to the industry.`, image: Mabaso, categoryId: 'IOSASS2', student: '222691990' },
-    { name: 'Kgothatso Kgaba', motivation: `Being nominated for the Intern of the Semester award is such an honor that reflects my
+excited to continue growing and contributing to the industry.`, image: Mabaso, categoryId: 'IOSASS2', student: '222691990'
+    },
+    {
+        name: 'Kgothatso Kgaba', motivation: `Being nominated for the Intern of the Semester award is such an honor that reflects my
 unwavering dedication to excellence. As a front-end developer, I have made significant
 contributions to the projects that I’ve worked on, delivering top-tier results that have
 positively impacted my team's goals. I was able to transition seamlessly from academic
@@ -469,20 +579,25 @@ maintaining a focus on team success and user-centered outcomes.
 This nomination serves as a testament to the recognition of my dedication, and positive
 contributions. It is with deep gratitude that I embrace this acknowledgment. Winning this
 award would not only be a tremendous honor but also a reflection of the determination
-and value I consistently bring to ICEP.`, image: Kgaba, categoryId: 'IOSASS2', student: '222053277' },
+and value I consistently bring to ICEP.`, image: Kgaba, categoryId: 'IOSASS2', student: '222053277'
+    },
 
     //Intern of the Semester Award Emalahleni S1
-    { name: 'Sihle Tabede', motivation: `#`, image: tba, categoryId: 'IOSAES1', student: '219179707' },
-    { name: 'Ayanda Mthethwa', motivation: `Dear Gustavo 
+    // { name: 'Sihle Tabede', motivation: `#`, image: tba, categoryId: 'IOSAES1', student: '219179707' },
+    {
+        name: 'Ayanda Mthethwa', motivation: `Dear Gustavo 
 
 During my internship at the Informatics Community Engagement Programme (ICEP) at TUT eMalahleni Campus, I developed skills in frontend development using React, HTML, CSS, SCSS, and JavaScript. I worked on building interactive and user-friendly web applications. 
 
 Beyond technical skills, my internship at ICEP has strengthened my problem-solving abilities, adaptability, and communication skills. Working on real-world projects, such as extreme service delivery portal, has shown me the impact that technology can have on improving lives.
 
 Sincerely
-Ayanda Mthethwa `, image: mthethwa, categoryId: 'IOSAES1', student: '216693353' },
-    { name: 'Khumalo Senzo', motivation: `  I developed and maintained RESTful APIs using Node.js and Express.js to handle user management, issue reporting, feedback, and notifications. I also implemented secure authentication and authorization for different user roles (Residents, Admin, Supervisor).
-  My internship at ICEP Emalahleni allowed me to apply my technical knowledge in a practical environment, contributing to a project that had a direct impact on the community. This experience enhanced my development skills and deepened my understanding of building scalable web applications.  `, image: khumalo, categoryId: 'IOSAES1', student: '218716598' },
+Ayanda Mthethwa `, image: mthethwa, categoryId: 'IOSAES1', student: '216693353'
+    },
+    {
+        name: 'Khumalo Senzo', motivation: `  I developed and maintained RESTful APIs using Node.js and Express.js to handle user management, issue reporting, feedback, and notifications. I also implemented secure authentication and authorization for different user roles (Residents, Admin, Supervisor).
+  My internship at ICEP Emalahleni allowed me to apply my technical knowledge in a practical environment, contributing to a project that had a direct impact on the community. This experience enhanced my development skills and deepened my understanding of building scalable web applications.  `, image: khumalo, categoryId: 'IOSAES1', student: '218716598'
+    },
 
     //Intern of the Semester Award Emalahleni S2
     { name: 'Dennis Ramara', motivation: `When I began the internship, I focused exclusively on backend development. However, I quickly expanded my role by leading the backend team, and helping with the integration of backend APIs with the frontend. My proactive approach and problem-solving skills have made me the go-to person for resolving some coding issues. This adaptability and leadership have significantly contributed to our team’s success. I am honoured to be nominated for the Intern of the Semester and Iron Pillar Awards, as they recognize my growth, dedication, and impactful contributions to our project.`, image: Ramara, categoryId: 'IOSAES2', student: '222997496' },
