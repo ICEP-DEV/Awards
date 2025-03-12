@@ -40,6 +40,10 @@ const VotingContent = () => {
     alert("All students added into the system");
   };
 
+  const deleteStudent = async () =>{
+    
+  }
+
 
   const handleOptionChange = (categoryId, student) => {
     // Check if the vote for this category already exists
@@ -100,6 +104,8 @@ const VotingContent = () => {
     const studentListFound = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     const studentFound = studentListFound.find(value => value.studentNo === studentNo);
     if (studentFound) {
+      console.log(studentFound);
+      
       setLoading(true);
       setVerifiedStudentDetails(studentFound);
       if (studentFound.semesterCode === "S0") {
@@ -264,7 +270,7 @@ const VotingContent = () => {
               </div>
               {Categories.map((category, xid) => (
                 <div className='category' key={category.categoryId}>
-                  <h4>{xid + 1} {category.categoryName}</h4>
+                  <h4 className='category-key'>{xid + 1} {category.categoryName}</h4>
                   {Nominies.filter(value => { return value.student === studentNo && value.categoryId === category.categoryId }).length > 0 ?
                     <>
                       <h3 style={{ textAlign: 'center', backgroundColor: 'lightblue' }}>You are nominated to this category</h3>

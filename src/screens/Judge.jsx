@@ -45,7 +45,7 @@ const Judge = () => {
             setEmail(user_id);
             getAllProjects();
         }
-    })
+    },[])
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -105,7 +105,7 @@ const Judge = () => {
         //Email
         const data = await getDocs(votedProjectCollection);
         const results = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-        console.log(results.filter(value => { return value.email.toLocaleLowerCase() === Email.toLocaleLowerCase() }));
+        // console.log(results.filter(value => { return value.email.toLocaleLowerCase() === Email.toLocaleLowerCase() }));
 
         setVotedProject(results.filter(value => { return value.email.toLocaleLowerCase() === Email.toLocaleLowerCase() }));
 

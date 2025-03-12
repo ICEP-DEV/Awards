@@ -1,73 +1,85 @@
-.container{
+.container {
   margin-top: 20px;
 }
 
-.content{
+.content {
   margin-top: 50px;
 }
 
-.category{
-  padding-bottom:20px;
+.category {
+  padding-bottom: 20px;
 }
 
-.voter_details{
+.category-key{
+  background-color: rgba(0, 255, 255, 0.616);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.voter_details {
   padding: 50px 0;
   background-color: #f2f2f2b4;
-  
+
 }
 
-.bold_voter_details{
+.bold_voter_details {
   width: 13%;
 }
 
-.nominations{
+.nominations {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Responsive grid */
-  gap: 20px;  /* Space between the cards */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Responsive grid */
+  gap: 20px;
+  /* Space between the cards */
   padding: 20px;
   justify-content: center;
   align-items: center;
-  /* display: flex;
+  /* display: flex; 
   flex-wrap: wrap; */
 }
 
-.nominie{
+.nominie {
   background-color: #fff;
   border-radius: 10px;
-  overflow: hidden; /* Ensures images don't overflow their containers */
+  overflow: hidden;
+  /* Ensures images don't overflow their containers */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 80%;
-  height: 43vh; 
+  height: 43vh;
   position: relative;
 
 }
 
-.nominie:hover{transform: scale(1.05)}
+.nominie:hover {
+  transform: scale(1.05)
+}
 
-.nominie-name{
+.nominie-name {
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 
-.nominie-image{
+.nominie-image {
   width: 100%;
-  height: 35vh;  /* Fixed height for all images */
+  height: 35vh;
+  /* Fixed height for all images */
 
   /*
   width: 100%;
   height: 100%;*/
 }
 
-.vote-btn{
+.vote-btn {
   width: 100%;
 }
 
 .vote-btn:active {
-  transform: scale(0.98); 
+  transform: scale(0.98);
 }
 
-.view-more{
+.view-more {
   position: absolute;
   right: 0%;
   background-color: blue;
@@ -75,11 +87,11 @@
   padding: 10px;
 }
 
-.view-more:hover{
-   cursor: pointer;
+.view-more:hover {
+  cursor: pointer;
 }
 
-.stats_table{
+.stats_table {
   margin-top: 50px;
 }
 
@@ -90,14 +102,19 @@
   width: 100%;
 }
 
-#student_table td, #student_table th {
+#student_table td,
+#student_table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#student_table tr:nth-child(even){background-color: #f2f2f2;}
+#student_table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#student_table tr:hover {background-color: #ddd;}
+#student_table tr:hover {
+  background-color: #ddd;
+}
 
 #student_table th {
   padding-top: 12px;
@@ -107,6 +124,21 @@
   color: white;
 }
 
-.results, .result_per_voters{
+.results,
+.result_per_voters {
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 650px) {
+  .nominations{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .nominie {
+    text-align: center;
+    width: 60%;
+  }
+
 }

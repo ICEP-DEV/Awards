@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.9b33339d.css",
-    "main.js": "/static/js/main.c1dcd302.js",
+    "main.css": "/static/css/main.516bef4a.css",
+    "main.js": "/static/js/main.59c4cca7.js",
     "static/js/453.7855fdb2.chunk.js": "/static/js/453.7855fdb2.chunk.js",
     "static/media/Nkosi.jpg": "/static/media/Nkosi.3c8dac3558adad97b42e.jpg",
     "static/media/malatji.jpeg": "/static/media/malatji.13e4d6cac048fecd20b3.jpeg",
+    "static/media/make.jpg": "/static/media/make.88c3f1e4bbc747f357ec.jpg",
     "static/media/shiba.jpeg": "/static/media/shiba.8505a6f63e1849d029db.jpeg",
     "static/media/Mthombeni.JPEG": "/static/media/Mthombeni.b9ce48a4d50498d63820.JPEG",
     "static/media/Dladla.jpeg": "/static/media/Dladla.9e6b1be65b9197c1f6f5.jpeg",
@@ -12,6 +13,7 @@
     "static/media/Hlungwani.jpeg": "/static/media/Hlungwani.fd0f9230735416dbcb61.jpeg",
     "static/media/Mabaso.jpeg": "/static/media/Mabaso.c35f013477461d8c05aa.jpeg",
     "static/media/Matiza.jpg": "/static/media/Matiza.ed0dcb1955fe48e59484.jpg",
+    "static/media/netshivingane.jpeg": "/static/media/netshivingane.ea8fc1f1ae456c27b3ce.jpeg",
     "static/media/segomotso.jpeg": "/static/media/segomotso.3b6853d66cc7586e60b0.jpeg",
     "static/media/khumalo.jpg": "/static/media/khumalo.d811accde01dcb93ec6f.jpg",
     "static/media/Ramasenya.jpeg": "/static/media/Ramasenya.bdd4e0d887ee74e97909.jpeg",
@@ -47,12 +49,12 @@
     "static/media/Mokoena.jpg": "/static/media/Mokoena.3863f7bafd283b0affe4.jpg",
     "static/media/nkoane.JPG": "/static/media/nkoane.491018c902c04d2f2bfe.JPG",
     "index.html": "/index.html",
-    "main.9b33339d.css.map": "/static/css/main.9b33339d.css.map",
-    "main.c1dcd302.js.map": "/static/js/main.c1dcd302.js.map",
+    "main.516bef4a.css.map": "/static/css/main.516bef4a.css.map",
+    "main.59c4cca7.js.map": "/static/js/main.59c4cca7.js.map",
     "453.7855fdb2.chunk.js.map": "/static/js/453.7855fdb2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b33339d.css",
-    "static/js/main.c1dcd302.js"
+    "static/css/main.516bef4a.css",
+    "static/js/main.59c4cca7.js"
   ]
 }

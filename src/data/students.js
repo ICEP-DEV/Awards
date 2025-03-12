@@ -37,7 +37,7 @@ export const Students = [
     { studentNo: '221376510', name: 'SN Ntombela', voted: 'false', semesterCode: 'S2' }, { studentNo: '221233379', name: 'M Motloung', voted: 'false', semesterCode: 'S2' },
     { studentNo: '217301939', name: 'MR Monyebodi', voted: 'false', semesterCode: 'S2' }, { studentNo: '222167825', name: 'LT Molefe', voted: 'false', semesterCode: 'S2' },
     { studentNo: '220466779', name: 'OC Kgafela', voted: 'false', semesterCode: 'S2' }, { studentNo: '217282365', name: 'Y Makamu', voted: 'false', semesterCode: 'S2' },
-    { studentNo: '221109678', name: 'ZS Msibi', voted: 'false', semesterCode: 'S2' }, { studentNo: '221066677', name: 'RZ Malatji', voted: 'false', semesterCode: 'S2' },
+    { studentNo: '220247422', name: 'ZS Msibi', voted: 'false', semesterCode: 'S2' }, { studentNo: '221066677', name: 'RZ Malatji', voted: 'false', semesterCode: 'S2' },
     { studentNo: '221486030', name: 'SS Shiba', voted: 'false', semesterCode: 'S2' }, { studentNo: '222790395', name: 'S Xhamfu', voted: 'false', semesterCode: 'S2' },
     { studentNo: '221451805', name: 'SS Ndlovu', voted: 'false', semesterCode: 'S2' }, { studentNo: '221069404', name: 'W Hlungwani', voted: 'false', semesterCode: 'S2' },
     { studentNo: '220728927', name: 'LB Mthombeni', voted: 'false', semesterCode: 'S2' }, { studentNo: '220103447', name: 'MM Matlala', voted: 'false', semesterCode: 'S2' },

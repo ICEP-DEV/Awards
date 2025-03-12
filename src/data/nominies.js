@@ -38,7 +38,7 @@ import mawela from '../assets/nominies/Mawela.jpg';
 import mthethwa from '../assets/nominies/mthethwa.jpg';
 import nkoane from '../assets/nominies/nkoane.JPG';
 import sibanda from '../assets/nominies/sibanda.jpg'
-import make from '../assets/nominies/sibanda.jpg'
+import make from '../assets/nominies/make.jpg'
 import ntombela from '../assets/nominies/ntombela.jpg'
 import mohapi from '../assets/nominies/mohapi.jpg'
 import netshivingane from '../assets/nominies/netshivingane.jpeg'
