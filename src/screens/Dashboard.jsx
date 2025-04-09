@@ -28,7 +28,7 @@ const VotingContent = () => {
 
 
   useEffect(() => {
-    console.log(getInformation());
+    getInformation();
   }, []);
 
   const addStudents = async () => {
@@ -57,7 +57,6 @@ const VotingContent = () => {
     } else {
       // Add new vote
       setSelectedVote([...selectedVote, { categoryId, student }]);
-      console.log(selectedVote);
 
     }
   };
@@ -78,7 +77,6 @@ const VotingContent = () => {
           //  element.dateVoted = new Date();
           const response = await addDoc(voteCastedCollection, element);
           count++;
-          console.log(response);
         }
 
       } catch (error) {
@@ -104,7 +102,6 @@ const VotingContent = () => {
     const studentListFound = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
     const studentFound = studentListFound.find(value => value.studentNo === studentNo);
     if (studentFound) {
-      console.log(studentFound);
       
       setLoading(true);
       setVerifiedStudentDetails(studentFound);
@@ -163,7 +160,6 @@ const VotingContent = () => {
       }
     });
     setVotedResults(categorizedData.sort((a, b) => b.score - a.score));
-    console.log(categorizedData);
 
 
   }
@@ -220,7 +216,6 @@ const VotingContent = () => {
                   <td>{result.name}</td>
                   <td>{result.student}</td>
                   <td>{result.score}</td>
-
                 </tr>
               ))}
             </tbody>

@@ -29,14 +29,11 @@ const ListOfStudents = () => {
     const getAllStudent = async () => {
         const data = await getDocs(votersCollection);
         const studentListFound = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-        console.log(studentListFound);
         setListOfStudents(studentListFound);
     }
 
     const delete_student = async (student) => {
         const userDoc = doc(db, 'Voters', student.id);
-        console.log(userDoc);
-
         // Update the user's "voted" status to true
         await deleteDoc(userDoc, { voted: 'true' });
         alert(student.name + ' with student number ' + student.studentNo + ' deleted successfully')

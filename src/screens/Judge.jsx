@@ -51,7 +51,6 @@ const Judge = () => {
         const { name, value } = e.target;
 
         if (Number(value) === 0 || Number(value) > 5) {
-            console.log(name, value);
             alert('You only allowed to rate from 1 to 5')
             return;
         }
@@ -105,17 +104,16 @@ const Judge = () => {
         //Email
         const data = await getDocs(votedProjectCollection);
         const results = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-        // console.log(results.filter(value => { return value.email.toLocaleLowerCase() === Email.toLocaleLowerCase() }));
+        
 
         setVotedProject(results.filter(value => { return value.email.toLocaleLowerCase() === Email.toLocaleLowerCase() }));
 
     }
 
     function selectToVote(event) {
-        console.log(event);
         setSelectedProject(Projects.filter(value => { return value.projectId === event })[0])
         setProjectFound(true)
-        // console.log(Projects.filter(value => { return value.projectId === event })[0]);
+
 
     }
 
@@ -139,7 +137,6 @@ const Judge = () => {
             //     Number(Score.technicalProficiency) * 0.20 + Number(Score.feasibility) * 0.15 +
             //     Number(Score.impact) * 0.5 + Number(Score.safety) * 0.10 + Number(Score.userExperience) * 0.10
         }
-        console.log(data);
 
         setLoading(true);
 
