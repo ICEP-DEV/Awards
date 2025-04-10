@@ -1,20 +1,36 @@
 
-import React from "react";
-import QRCode from "react-qr-code";
+import React, { useState } from "react";
+import QRCodeScanner from "react-qr-scanner";
 
-function QRCodeScanner() {
-    var value = "hey"
-    return (
-        // Can be anything instead of `maxWidth` that limits the width.
-        <div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
-            <QRCode
-                size={256}
-                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                value={value}
-                viewBox={`0 0 256 256`}
-            />
+function QRCodeScan() {
+    const [scanResult, setScanResult] = useState(null);
+   
+    const handleScan = (data) => {
+        if (data) {
+          setScanResult(data); // Store the scanned QR code result
+        }
+      };
+    
+      const handleError = (err) => {
+        console.error(err); // Handle errors
+      };
+    
+      return (
+        <div>
+          <h1>QR Code Scanner</h1>
+          <QRCodeScanner
+            onScan={handleScan}
+            onError={handleError}
+            style={{ width: '100%' }}
+          />
+          {scanResult && (
+            <div>
+              <h2>Scanned QR Code Data:</h2>
+              <p>{scanResult}</p>
+            </div>
+          )}
         </div>
-    )
+      );
 }
 
-export default QRCodeScanner;
+export default QRCodeScan;
