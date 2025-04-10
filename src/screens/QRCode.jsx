@@ -6,8 +6,10 @@ function QRCodeScan() {
     const [scanResult, setScanResult] = useState(null);
    
     const handleScan = (data) => {
+        
         if (data) {
           setScanResult(data); // Store the scanned QR code result
+          alert(data)
         }
       };
     
